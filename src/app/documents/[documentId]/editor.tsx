@@ -7,6 +7,8 @@ import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell"
 import TableHeader from "@tiptap/extension-table-header"
 import TableRow from "@tiptap/extension-table-row"
+import Image from "@tiptap/extension-image"
+
 
 export const Editor = () => {
     const editor = useEditor({
@@ -22,16 +24,27 @@ export const Editor = () => {
             Table,
             TableHeader, 
             TableCell,
-            <TableRow></TableRow>
+            TableRow,
+            Image,
             TaskItem.configure({
                 nested: true,
             })
         ],
         content: `
-        <ul data-type="taskList">
-          <li data-type="taskItem" data-checked="true">A list item</li>
-          <li data-type="taskItem" data-checked="false">And another one</li>
-        </ul>
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th colspan="3">Description</th>
+            </tr>
+            <tr>
+              <td>Cyndi Lauper</td>
+              <td>Singer</td>
+              <td>Songwriter</td>
+              <td>Actress</td>
+            </tr>
+          </tbody>
+        </table>
       `
     })
     return (
